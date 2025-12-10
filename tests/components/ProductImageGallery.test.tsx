@@ -18,8 +18,13 @@ describe("Users List", () => {
         render(<ProductImageGallery imageUrls={urls} />)
 
         const images = screen.getAllByRole('img')
-        expect(images).toHaveLength(2)
-       
+        expect(images).toHaveLength(urls.length)
+        // expect(images[0]).toHaveAttribute('src',urls[0]) 
+        // expect(images[1]).toHaveAttribute('src',urls[1]) 
+        urls.forEach((url, ind) => (
+
+            expect(images[ind]).toHaveAttribute('src', url)
+        ))
     })
 
 })
